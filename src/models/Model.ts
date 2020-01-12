@@ -32,17 +32,10 @@ export class Model<T extends Identifiable> {
   //   this.events.on(eventName, callback);
   // }
   // NOTE: instead, return the reference to the method.
-  get on() {
-    return this.events.on;
-  }
-
-  get trigger() {
-    return this.events.trigger;
-  }
-
-  get get() {
-    return this.attributes.get;
-  }
+  // CAUTION: be careful of the order of the initialization.
+  on = this.events.on;
+  trigger = this.events.trigger;
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
