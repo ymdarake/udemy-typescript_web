@@ -18,4 +18,21 @@ export class User {
   constructor(attrs: UserProps) {
     this.attributes = new Attributes<UserProps>(attrs);
   }
+
+  // NOTE: following needs to be updated on each time Eventing changed.
+  // on(eventName: string, callback: Callback): void {
+  //   this.events.on(eventName, callback);
+  // }
+  // NOTE: instead, return the reference to the method.
+  get on() {
+    return this.events.on;
+  }
+
+  get trigger() {
+    return this.events.trigger;
+  }
+
+  get get() {
+    return this.attributes.get;
+  }
 }
